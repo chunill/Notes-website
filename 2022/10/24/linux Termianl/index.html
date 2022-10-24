@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Notes-website/images/dice_four.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Notes-website/images/dice_four.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Notes-website/images/dice_four.png">
+  <link rel="mask-icon" href="/Notes-website/images/dice_four.png" color="#222">
+
+<link rel="stylesheet" href="/Notes-website/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chunill.github.io","root":"/Notes-website/","images":"/Notes-website/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/Notes-website/js/config.js"></script>
+
+    <meta name="description" content="linux Termianl總之先講解一下目錄的部份  一進入之後基本上是這個畫面，前面綠綠的＠之前是代表現在的使用者，像我現在就是chunill，＠後面是用的裝置，我現在的裝置是我的筆電，名字是chunill-X411UA 先用指令pwd查看現在的位置 好，我們現在是在家目錄的chunill這個使用者之下先回到根目錄以後用ls這個指令 基本上我還沒研究好除了home以外的其他東西功能什麼，但以後">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux Termianl">
+<meta property="og:url" content="https://chunill.github.io/Notes-website/2022/10/24/linux%20Termianl/index.html">
+<meta property="og:site_name" content="Chunill Notes">
+<meta property="og:description" content="linux Termianl總之先講解一下目錄的部份  一進入之後基本上是這個畫面，前面綠綠的＠之前是代表現在的使用者，像我現在就是chunill，＠後面是用的裝置，我現在的裝置是我的筆電，名字是chunill-X411UA 先用指令pwd查看現在的位置 好，我們現在是在家目錄的chunill這個使用者之下先回到根目錄以後用ls這個指令 基本上我還沒研究好除了home以外的其他東西功能什麼，但以後">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.imgur.com/ZPSMLyY.png">
+<meta property="og:image" content="https://i.imgur.com/q2Ek6fi.png">
+<meta property="og:image" content="https://i.imgur.com/A0efsEc.png">
+<meta property="article:published_time" content="2022-10-24T07:46:59.578Z">
+<meta property="article:modified_time" content="2022-10-24T17:34:01.358Z">
+<meta property="article:author" content="Chunill">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/ZPSMLyY.png">
+
+
+<link rel="canonical" href="https://chunill.github.io/Notes-website/2022/10/24/linux%20Termianl/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh","comments":true,"permalink":"https://chunill.github.io/Notes-website/2022/10/24/linux%20Termianl/","path":"2022/10/24/linux Termianl/","title":"linux Termianl"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>linux Termianl | Chunill Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Notes-website/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Notes-website/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Chunill Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">阿千的筆記堆</p>
+      <img class="custom-logo-image" src="/Notes-website/images/custom_logo.png" alt="Chunill Notes">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/Notes-website/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux-Termianl"><span class="nav-number">1.</span> <span class="nav-text">linux Termianl</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-cd-x3D-x3D"><span class="nav-number">1.1.1.</span> <span class="nav-text">&#x3D;&#x3D;cd&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-pwd-x3D-x3D"><span class="nav-number">1.1.2.</span> <span class="nav-text">&#x3D;&#x3D;pwd&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-ls-x3D-x3D"><span class="nav-number">1.1.3.</span> <span class="nav-text">&#x3D;&#x3D;ls&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-man-x3D-x3D"><span class="nav-number">1.1.4.</span> <span class="nav-text">&#x3D;&#x3D;man&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-mv-x3D-x3D"><span class="nav-number">1.1.5.</span> <span class="nav-text">&#x3D;&#x3D;mv&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-dpkg-x3D-x3D"><span class="nav-number">1.1.6.</span> <span class="nav-text">&#x3D;&#x3D;dpkg&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-mkdir-x3D-x3D"><span class="nav-number">1.1.7.</span> <span class="nav-text">&#x3D;&#x3D;mkdir&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-rm-x3D-x3D"><span class="nav-number">1.1.8.</span> <span class="nav-text">&#x3D;&#x3D;rm&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-chmod-x3D-x3D"><span class="nav-number">1.1.9.</span> <span class="nav-text">&#x3D;&#x3D;chmod&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-touch-x3D-x3D"><span class="nav-number">1.1.10.</span> <span class="nav-text">&#x3D;&#x3D;touch&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-cat-x3D-x3D"><span class="nav-number">1.1.11.</span> <span class="nav-text">&#x3D;&#x3D;cat&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-vi-x3D-x3D"><span class="nav-number">1.1.12.</span> <span class="nav-text">&#x3D;&#x3D;vi&#x3D;&#x3D;</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chunill</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/Notes-website/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://chunill.github.io/Notes-website/2022/10/24/linux%20Termianl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Notes-website/images/avatar.gif">
+      <meta itemprop="name" content="Chunill">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chunill Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="linux Termianl | Chunill Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux Termianl
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-24 15:46:59" itemprop="dateCreated datePublished" datetime="2022-10-24T15:46:59+08:00">2022-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-10-25 01:34:01" itemprop="dateModified" datetime="2022-10-25T01:34:01+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Notes-website/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="linux-Termianl"><a href="#linux-Termianl" class="headerlink" title="linux Termianl"></a>linux Termianl</h1><p>總之先講解一下目錄的部份</p>
+<p><img src="https://i.imgur.com/ZPSMLyY.png"></p>
+<p>一進入之後基本上是這個畫面，前面綠綠的＠之前是代表現在的使用者，像我現在就是chunill，＠後面是用的裝置，我現在的裝置是我的筆電，名字是chunill-X411UA</p>
+<p>先用指令pwd查看現在的位置<br><img src="https://i.imgur.com/q2Ek6fi.png"></p>
+<p>好，我們現在是在家目錄的chunill這個使用者之下<br>先回到根目錄以後用ls這個指令<br><img src="https://i.imgur.com/A0efsEc.png"></p>
+<p>基本上我還沒研究好除了home以外的其他東西功能什麼，但以後再研究<br>現在講解一些常用的指令</p>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="x3D-x3D-cd-x3D-x3D"><a href="#x3D-x3D-cd-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;cd&#x3D;&#x3D;"></a>&#x3D;&#x3D;cd&#x3D;&#x3D;</h3><p>可以用這個指令在資料夾之間移動，可以輸入絕對路徑或是相對路徑<br>假如輸入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd /home/chunill</span><br></pre></td></tr></table></figure>
+
+<p>就是絕對路徑<br>但假如你沒有在前面加&#x2F;<br>他會在當前的目錄尋找你打的資料夾<br>比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd home/chunill</span><br></pre></td></tr></table></figure>
+
+<p>假如你已經在home裡面了，由於在home裡面沒有home這個資料夾，所以會顯示找不到資料夾</p>
+<p>然後</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ..</span><br></pre></td></tr></table></figure>
+<p>是代表往前一個資料夾的意思</p>
+<p>補充一個，你可以在cd時按兩下tab可以看當前目錄</p>
+<h3 id="x3D-x3D-pwd-x3D-x3D"><a href="#x3D-x3D-pwd-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;pwd&#x3D;&#x3D;"></a>&#x3D;&#x3D;pwd&#x3D;&#x3D;</h3><p>可以查看當前路徑</p>
+<h3 id="x3D-x3D-ls-x3D-x3D"><a href="#x3D-x3D-ls-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;ls&#x3D;&#x3D;"></a>&#x3D;&#x3D;ls&#x3D;&#x3D;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls [folder name]</span><br></pre></td></tr></table></figure>
+<p>可以查看當前資料夾裡面的東西<br>後面加資料夾名稱可以查看資料夾內的東西</p>
+<h3 id="x3D-x3D-man-x3D-x3D"><a href="#x3D-x3D-man-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;man&#x3D;&#x3D;"></a>&#x3D;&#x3D;man&#x3D;&#x3D;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ man [command name]</span><br></pre></td></tr></table></figure>
+
+<p>這個指令可以查看每個指令的用法</p>
+<h3 id="x3D-x3D-mv-x3D-x3D"><a href="#x3D-x3D-mv-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;mv&#x3D;&#x3D;"></a>&#x3D;&#x3D;mv&#x3D;&#x3D;</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv [filename] [path_of_destination_directory]</span><br></pre></td></tr></table></figure>
+<p>輸入要移動的目標的資料夾，會在當前的資料夾尋找是否有這個資料夾，用絕對或相對路徑都可以，在輸入的時候也可以按兩下tab查看你輸入到目前的路徑底下有哪些資料夾。</p>
+<p>如果找不到要移動的資料夾，或是目標資料夾的位置是檔案名稱的話，那麼檔案會改成那個名字。</p>
+<h3 id="x3D-x3D-dpkg-x3D-x3D"><a href="#x3D-x3D-dpkg-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;dpkg&#x3D;&#x3D;"></a>&#x3D;&#x3D;dpkg&#x3D;&#x3D;</h3><p>dpkg 是個管理deb檔案的管理器，通常用他來安裝deb檔案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i [path-to-deb-file]</span><br></pre></td></tr></table></figure>
+<p>sudo是個權限指令，可以透過這個打開一些需要root權限的資料夾或是使用需要權限的指令</p>
+<h3 id="x3D-x3D-mkdir-x3D-x3D"><a href="#x3D-x3D-mkdir-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;mkdir&#x3D;&#x3D;"></a>&#x3D;&#x3D;mkdir&#x3D;&#x3D;</h3><p>mkdir可以新增目錄，用法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir [folder-name]</span><br></pre></td></tr></table></figure>
+
+<h3 id="x3D-x3D-rm-x3D-x3D"><a href="#x3D-x3D-rm-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;rm&#x3D;&#x3D;"></a>&#x3D;&#x3D;rm&#x3D;&#x3D;</h3><p>刪除檔案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$rm [file name]...</span><br></pre></td></tr></table></figure>
+<p>可以增加-r，代表刪除目錄與目錄下檔案</p>
+<h3 id="x3D-x3D-chmod-x3D-x3D"><a href="#x3D-x3D-chmod-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;chmod&#x3D;&#x3D;"></a>&#x3D;&#x3D;chmod&#x3D;&#x3D;</h3><p>這個是更改權限的意思，要講這個就要講到linux的權限問題。<br>linux上權限最大的使用者是root<br>假如在目錄裡輸入<code>$ ls -al</code>會出現檔案詳細資訊，這時會看到檔案最前面有七個欄位</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr--r--  1 root root    8  5月  8 02:14 test.txt</span><br></pre></td></tr></table></figure>
+<p>前七位代表他的權限，分別代表：</p>
+<ol>
+<li>-檔案類型</li>
+<li>r擁有者查看權限</li>
+<li>w擁有者更改、執行權限</li>
+<li>x擁有者執行權限</li>
+<li>r群組查看權限</li>
+<li>w群組更改、執行權限</li>
+<li>x群組執行權限</li>
+<li>r其他人查看權限</li>
+<li>w其他人更改、執行權限</li>
+<li>x其他人執行權限</li>
+</ol>
+<p>這時候要更改縣的話可以輸入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 777</span><br></pre></td></tr></table></figure>
+<p>每一個數字依序代表擁有者、群組、其他人的權限<br>r:4<br>w:2<br>x:1<br>要哪個權限相加就是了</p>
+<h3 id="x3D-x3D-touch-x3D-x3D"><a href="#x3D-x3D-touch-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;touch&#x3D;&#x3D;"></a>&#x3D;&#x3D;touch&#x3D;&#x3D;</h3><p>新增檔案、更改時間戳記</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch [filename]</span><br></pre></td></tr></table></figure>
+<p>如果沒有這個檔案名稱就會新增檔案，如果有的話，會將檔案時間戳記改為現在</p>
+<h3 id="x3D-x3D-cat-x3D-x3D"><a href="#x3D-x3D-cat-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;cat&#x3D;&#x3D;"></a>&#x3D;&#x3D;cat&#x3D;&#x3D;</h3><p>查看檔案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat [filename]</span><br></pre></td></tr></table></figure>
+
+<h3 id="x3D-x3D-vi-x3D-x3D"><a href="#x3D-x3D-vi-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;vi&#x3D;&#x3D;"></a>&#x3D;&#x3D;vi&#x3D;&#x3D;</h3><p>修改檔案內容、新增檔案內容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi [filename]</span><br></pre></td></tr></table></figure>
+<p>之後會進入編輯模式，按i就可以開始編輯，編輯完成之後按esc就可以退出編輯，之後再輸入<code>:wq</code>就可以存檔並退出。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Notes-website/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Notes-website/2022/10/13/%E9%98%BF%E5%8D%83%E7%9A%84%E7%AD%86%E8%A8%98%E5%A0%86/" rel="prev" title="阿千的筆記堆">
+                  <i class="fa fa-chevron-left"></i> 阿千的筆記堆
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Notes-website/2022/10/24/git%20stash%20%E5%84%B2%E8%97%8F/" rel="next" title="git stash 儲藏">
+                  git stash 儲藏 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chunill</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Notes-website/js/comments.js"></script><script src="/Notes-website/js/utils.js"></script><script src="/Notes-website/js/motion.js"></script><script src="/Notes-website/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Notes-website/images/dice_four.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Notes-website/images/dice_four.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Notes-website/images/dice_four.png">
+  <link rel="mask-icon" href="/Notes-website/images/dice_four.png" color="#222">
+
+<link rel="stylesheet" href="/Notes-website/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chunill.github.io","root":"/Notes-website/","images":"/Notes-website/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/Notes-website/js/config.js"></script>
+
+    <meta name="description" content="自定義 shell 指令別名有一些很常用的 shell 指令常常很長一串，但又不想要每次都重新輸入，可以使用 alias 指令來增加別名。 增加別名以下指令可以增加別名，但要注意，使用alias指令時，當 terminal 重新開啟，別名指令並不會被保留，後面會教如何永久保留指令別名。 1alias [name]&#x3D;&amp;#x27;[command]&amp;#x27;  刪除別名用以下指令刪除別名： 1una">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定義 shell 指令別名">
+<meta property="og:url" content="https://chunill.github.io/Notes-website/2022/10/13/%E8%87%AA%E5%AE%9A%E7%BE%A9%20shell%20%E6%8C%87%E4%BB%A4%E5%88%A5%E5%90%8D/index.html">
+<meta property="og:site_name" content="Chunill Notes">
+<meta property="og:description" content="自定義 shell 指令別名有一些很常用的 shell 指令常常很長一串，但又不想要每次都重新輸入，可以使用 alias 指令來增加別名。 增加別名以下指令可以增加別名，但要注意，使用alias指令時，當 terminal 重新開啟，別名指令並不會被保留，後面會教如何永久保留指令別名。 1alias [name]&#x3D;&amp;#x27;[command]&amp;#x27;  刪除別名用以下指令刪除別名： 1una">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-10-13T13:36:43.000Z">
+<meta property="article:modified_time" content="2022-10-24T08:36:14.508Z">
+<meta property="article:author" content="Chunill">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chunill.github.io/Notes-website/2022/10/13/%E8%87%AA%E5%AE%9A%E7%BE%A9%20shell%20%E6%8C%87%E4%BB%A4%E5%88%A5%E5%90%8D/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh","comments":true,"permalink":"https://chunill.github.io/Notes-website/2022/10/13/%E8%87%AA%E5%AE%9A%E7%BE%A9%20shell%20%E6%8C%87%E4%BB%A4%E5%88%A5%E5%90%8D/","path":"2022/10/13/自定義 shell 指令別名/","title":"自定義 shell 指令別名"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>自定義 shell 指令別名 | Chunill Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Notes-website/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Notes-website/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Chunill Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">阿千的筆記堆</p>
+      <img class="custom-logo-image" src="/Notes-website/images/custom_logo.png" alt="Chunill Notes">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/Notes-website/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E7%BE%A9-shell-%E6%8C%87%E4%BB%A4%E5%88%A5%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">自定義 shell 指令別名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%88%A5%E5%90%8D"><span class="nav-number">1.1.</span> <span class="nav-text">增加別名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E5%88%A5%E5%90%8D"><span class="nav-number">1.2.</span> <span class="nav-text">刪除別名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E6%8C%87%E4%BB%A4%E5%88%A5%E5%90%8D"><span class="nav-number">1.3.</span> <span class="nav-text">查看所有指令別名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%8C%87%E4%BB%A4%E6%98%AF%E5%90%A6%E6%9C%89%E5%88%A5%E5%90%8D"><span class="nav-number">1.4.</span> <span class="nav-text">查找指令是否有別名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B0%B8%E4%B9%85%E4%BF%AE%E6%94%B9%E6%8C%87%E4%BB%A4%E5%88%A5%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">永久修改指令別名</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chunill</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/Notes-website/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh">
+    <link itemprop="mainEntityOfPage" href="https://chunill.github.io/Notes-website/2022/10/13/%E8%87%AA%E5%AE%9A%E7%BE%A9%20shell%20%E6%8C%87%E4%BB%A4%E5%88%A5%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Notes-website/images/avatar.gif">
+      <meta itemprop="name" content="Chunill">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chunill Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="自定義 shell 指令別名 | Chunill Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自定義 shell 指令別名
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-13 21:36:43" itemprop="dateCreated datePublished" datetime="2022-10-13T21:36:43+08:00">2022-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-10-24 16:36:14" itemprop="dateModified" datetime="2022-10-24T16:36:14+08:00">2022-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Notes-website/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="自定義-shell-指令別名"><a href="#自定義-shell-指令別名" class="headerlink" title="自定義 shell 指令別名"></a>自定義 shell 指令別名</h1><p>有一些很常用的 shell 指令常常很長一串，但又不想要每次都重新輸入，可以使用 <code>alias</code> 指令來增加別名。</p>
+<h2 id="增加別名"><a href="#增加別名" class="headerlink" title="增加別名"></a>增加別名</h2><p>以下指令可以增加別名，但要注意，使用<code>alias</code>指令時，當 terminal 重新開啟，別名指令並不會被保留，後面會教如何永久保留指令別名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> [name]=<span class="string">&#x27;[command]&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="刪除別名"><a href="#刪除別名" class="headerlink" title="刪除別名"></a>刪除別名</h2><p>用以下指令刪除別名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unalias</span> [name]</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看所有指令別名"><a href="#查看所有指令別名" class="headerlink" title="查看所有指令別名"></a>查看所有指令別名</h2><p>使用 <code>alias</code> 不加任何後綴的話，會顯示所有指令別名。</p>
+<p>使用以下指令查找別名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> [name]</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="查找指令是否有別名"><a href="#查找指令是否有別名" class="headerlink" title="查找指令是否有別名"></a>查找指令是否有別名</h2><p>使用 <code>type</code> 指令來尋找是否有別名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span> [<span class="built_in">command</span>]</span><br></pre></td></tr></table></figure>
+
+<h1 id="永久修改指令別名"><a href="#永久修改指令別名" class="headerlink" title="永久修改指令別名"></a>永久修改指令別名</h1><p>想要永久修改指令別名，需要將別名添加到 shell 的配置 (config) 文件中，而修改什麼文件，取決於你使用的 shell 類型。</p>
+<p>例如這些常用的 shell 配置文件分別是：</p>
+<ul>
+<li>Bash shell: ~&#x2F;.bashrc</li>
+<li>Zsh shell: ~&#x2F;.zshrc</li>
+<li>Fish shell: ~&#x2F;.config&#x2F;fish&#x2F;config.fish</li>
+</ul>
+<p>這裡用 bash 來做範例，雖然我自己是用 zsh ，但 zsh 推薦 oh-my-zsh 的使用者將自定義檔案放在 ZSH_CUSTOM 資料夾，詳情可以參考另一篇 「zsh 的設定」。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>在這裡我使用 vim 編輯器打開檔案，打開檔案後，使用 alias 語法，將你想要的指令別名加入檔案內：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Custom aliases</span></span><br><span class="line"><span class="built_in">alias</span> [name]=<span class="string">&#x27;[command]&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>前面的 <code># Custom aliases</code> 是為了方便以後查看所下的註解，將上面的程式碼貼入檔案內你覺得適合的位置（我推薦放在 <code># some more ls aliases</code> 區塊下方）之後，就大功告成了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Notes-website/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/Notes-website/2022/10/13/%E9%98%BF%E5%8D%83%E7%9A%84%E7%AD%86%E8%A8%98%E5%A0%86/" rel="next" title="阿千的筆記堆">
+                  阿千的筆記堆 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chunill</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Notes-website/js/comments.js"></script><script src="/Notes-website/js/utils.js"></script><script src="/Notes-website/js/motion.js"></script><script src="/Notes-website/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
